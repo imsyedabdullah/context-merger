@@ -93,7 +93,9 @@ async function collectFiles(uri: vscode.Uri): Promise<vscode.Uri[]> {
     const files: vscode.Uri[] = [];
 
     for (const [name, type] of entries) {
-        if (IGNORED_NAMES.has(name)) continue;
+        if (IGNORED_NAMES.has(name)){
+			continue;
+		}
 
         const child = vscode.Uri.joinPath(uri, name);
 
