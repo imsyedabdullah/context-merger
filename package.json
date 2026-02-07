@@ -1,6 +1,7 @@
 {
 	"name": "context-merger",
 	"displayName": "Context Merger",
+	"publisher": "SyedAbdullah",
 	"description": "Merge multiple files and folders into a single, structured text file for LLMs, code reviews, or documentation.",
 	"version": "0.0.1",
 	"engines": {
