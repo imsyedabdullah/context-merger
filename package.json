@@ -1,0 +1,45 @@
+{
+  "name": "context-merger",
+  "displayName": "Context Merger",
+  "description": "Merge multiple files and folders into a single, structured text file for LLMs, code reviews, or documentation.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.106.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [],
+  "contributes": {
+    "commands": [
+      {
+        "command": "contextMerger.mergeSelection",
+        "title": "Merge into Single File"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "contextMerger.mergeSelection",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run package",
+    "compile": "pnpm run check-types && pnpm run lint && node esbuild.js",
+    "package": "pnpm run check-types && pnpm run lint && node esbuild.js --production",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.109.0",
+    "@types/node": "22.x",
+    "typescript-eslint": "^8.54.0",
+    "eslint": "^9.39.2",
+    "esbuild": "^0.27.2",
+    "typescript": "^5.9.3"
+  }
+}
