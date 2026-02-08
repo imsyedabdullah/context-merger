@@ -3,7 +3,7 @@
 	"displayName": "Context Merger",
 	"publisher": "SyedAbdullah",
 	"description": "Merge multiple files and folders into a single, structured text file for LLMs, code reviews, or documentation.",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"engines": {
 		"vscode": "^1.36.0"
 	},
@@ -32,7 +32,7 @@
 	"scripts": {
 		"compile": "npm run check-types && npm run lint && node esbuild.js",
 		"package": "npm run check-types && npm run lint && node esbuild.js --production",
-		"package:marketplace": "vsce package --baseImagesUrl https://raw.githubusercontent.com/imsyedabdullah/context-merger/master/assets",
+		"package:marketplace": "vsce package --baseImagesUrl https://raw.githubusercontent.com/imsyedabdullah/context-merger/master",
 		"check-types": "tsc --noEmit",
 		"lint": "eslint src"
 	},
