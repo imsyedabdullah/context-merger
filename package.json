@@ -3,12 +3,29 @@
 	"displayName": "Context Merger",
 	"publisher": "SyedAbdullah",
 	"description": "Merge multiple files and folders into a single, structured text file for LLMs, code reviews, or documentation.",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"engines": {
 		"vscode": "^1.36.0"
 	},
 	"categories": [
 		"Other"
+	],
+	"keywords": [
+		"context",
+		"merge",
+		"merge files",
+		"merge folders",
+		"copy files",
+		"llm",
+		"prompt",
+		"codebase",
+		"documentation",
+		"copy",
+		"export",
+		"remove comments",
+		"remove blank lines",
+		"file types",
+		"filtering"
 	],
 	"main": "./dist/extension.js",
 	"icon": "assets/icon.png",
@@ -20,6 +37,49 @@
 				"title": "Merge into Single File"
 			}
 		],
+		"configuration": {
+			"title": "Context Merger",
+			"properties": {
+				"contextMerger.disableFileTypeFiltering": {
+					"type": "boolean",
+					"default": false,
+					"description": "Include all file types and ignore common/additional file extension filtering."
+				},
+				"contextMerger.additionalFileTypes": {
+					"type": "array",
+					"default": [],
+					"items": {
+						"type": "string"
+					},
+					"description": "Extra file extensions to include in addition to the built-in common code types (for example: .svg)."
+				},
+				"contextMerger.ignoredFilesFolders": {
+					"type": "array",
+					"default": [
+						"node_modules",
+						".git",
+						"dist",
+						"build",
+						".next",
+						"out"
+					],
+					"items": {
+						"type": "string"
+					},
+					"description": "File/Folder names to skip while collecting files (in .gitignore format)"
+				},
+				"contextMerger.skipExtraBlankLines": {
+					"type": "boolean",
+					"default": true,
+					"description": "Remove blank lines from file content before merging."
+				},
+				"contextMerger.removeComments": {
+					"type": "boolean",
+					"default": false,
+					"description": "Remove common comments for supported languages (JS/TS/PHP/Python and similar syntax families)."
+				}
+			}
+		},
 		"menus": {
 			"explorer/context": [
 				{
@@ -41,11 +101,15 @@
 		"url": "https://github.com/imsyedabdullah/context-merger"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.36.0",
 		"@types/node": "22.x",
-		"typescript-eslint": "^8.54.0",
-		"eslint": "^9.39.2",
+		"@types/strip-comments": "^2.0.4",
+		"@types/vscode": "^1.36.0",
 		"esbuild": "^0.27.2",
-		"typescript": "^5.9.3"
+		"eslint": "^9.39.2",
+		"typescript": "^5.9.3",
+		"typescript-eslint": "^8.54.0"
+	},
+	"dependencies": {
+		"strip-comments": "^2.0.1"
 	}
 }
